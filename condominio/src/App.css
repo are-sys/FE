@@ -40,3 +40,165 @@
 .read-the-docs {
   color: #888;
 }
+
+/* chat application styles */
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 1rem;
+  font-family: Arial, sans-serif;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.notificaciones {
+  position: relative;
+}
+
+.campana {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  position: relative;
+}
+
+.campana.nueva {
+  color: #e00;
+}
+
+.badge {
+  background: #e00;
+  color: #fff;
+  border-radius: 50%;
+  padding: 2px 6px;
+  font-size: 0.75rem;
+  position: absolute;
+  top: -5px;
+  right: -5px;
+}
+
+.dropdown {
+  position: absolute;
+  right: 0;
+  top: 2rem;
+  width: 250px;
+  max-height: 300px;
+  overflow-y: auto;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,.15);
+  border-radius: 4px;
+  z-index: 10;
+}
+
+.item {
+  padding: 0.5rem 1rem;
+  border-bottom: 1px solid #eee;
+  cursor: pointer;
+}
+.item:last-child {
+  border-bottom: none;
+}
+.item:hover {
+  background: #f5f5f5;
+}
+
+.chat-box {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 1rem;
+  height: 400px;
+  overflow-y: auto;
+  margin-bottom: 1rem;
+  background: #fafafa;
+}
+
+.mensaje {
+  margin-bottom: 0.75rem;
+  padding: 0.5rem;
+  background: #fff;
+  border-radius: 4px;
+  text-align: left;
+}
+
+.input-area {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.input-area input {
+  flex: 1;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.input-area button {
+  padding: 0.5rem 1rem;
+  border: none;
+  background: #007bff;
+  color: #fff;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.input-area button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.detalle {
+  max-width: 600px;
+  margin: 2rem auto;
+  text-align: center;
+}
+
+/* transition classes for alert and loading */
+.alerta-enter {
+  opacity: 0;
+  transform: translateY(-20px);
+}
+.alerta-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 300ms, transform 300ms;
+}
+.alerta-exit {
+  opacity: 1;
+}
+.alerta-exit-active {
+  opacity: 0;
+  transition: opacity 300ms;
+}
+
+.loading-enter {
+  opacity: 0;
+}
+.loading-enter-active {
+  opacity: 1;
+  transition: opacity 300ms;
+}
+.loading-exit {
+  opacity: 1;
+}
+.loading-exit-active {
+  opacity: 0;
+  transition: opacity 300ms;
+}
+
+.alerta-box,
+.loading-box {
+  position: fixed;
+  top: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #323232;
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  z-index: 100;
+}
