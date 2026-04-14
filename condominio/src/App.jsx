@@ -1,34 +1,39 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Login from "./pages/Login";
-import Register from "./pages/Register";
 import Dashboard from "./pages/Dashboard";
 import Admin from "./pages/Admin";
-import ProtectedRoute from "./routes/ProtectedRoute";
+import Unauthorized from "./pages/Unauthorized";
+
+import RequireAuth from "./middleware/RequireAuth";
+import RequireRole from "./middleware/RequireRole";
 
 export default function App() {
   return (
     <BrowserRouter>
       <Routes>
 
+        {/* públicas */}
         <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
+        <Route path="/unauthorized" element={<Unauthorized />} />
 
+        {/* protegidas (sesión activa) */}
         <Route
           path="/dashboard"
           element={
-            <ProtectedRoute>
+            <RequireAuth>
               <Dashboard />
-            </ProtectedRoute>
+            </RequireAuth>
           }
         />
 
+        {/* solo admin */}
         <Route
           path="/admin"
           element={
-            <ProtectedRoute>
+            <RequireRole role="admin">
               <Admin />
-            </ProtectedRoute>
+            </RequireRole>
           }
         />
 
