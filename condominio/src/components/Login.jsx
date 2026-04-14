@@ -15,6 +15,8 @@ export default function Login() {
     window.location.href = "/dashboard";
   };
 
+  localStorage.setItem("token", res.data.token);
+
   return (
     <div>
       <h2>Login</h2>
